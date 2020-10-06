@@ -7,7 +7,7 @@ You will need to add a license.txt file with a valid vault ent license to run sc
 If you dont have a license you must finish the demo within 30 mins which is doable.
   
 **Step A: Initial App**  
-Run Scrputs 01-04 to start the application and test it before Vault.
+Run Scripts 01-04 to start the application and test it before Vault.
 Add a user in the WebApp.
 WebApp runs on port 5000
   
@@ -27,4 +27,4 @@ With minor modifications including:
  - Warning messages fix on deprecated syntax
  - MySQL version used (8.0.27)
  - SQL statements are read from a file
- - Updated sample data
+ - Changed sample data & data scheme
