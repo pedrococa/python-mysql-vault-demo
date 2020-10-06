@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS `customers` (
+    `cust_no` int(11) NOT NULL AUTO_INCREMENT,
+    `birth_date` varchar(255) NOT NULL,
+    `first_name` varchar(255) NOT NULL,
+    `last_name` varchar(255) NOT NULL,
+    `create_date` varchar(255) NOT NULL,
+    `social_security_number` varchar(255) NOT NULL,
+    `credit_card_number` varchar(255) NOT NULL,
+    `address` varchar(255) NOT NULL,
+    PRIMARY KEY (`cust_no`)
+) ENGINE=InnoDB;
