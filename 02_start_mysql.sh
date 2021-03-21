@@ -15,5 +15,5 @@ docker run --name vault-demo-mysql \
   -e MYSQL_USER=vault \
   -e MYSQL_PASSWORD=vaultpw \
   --network dev-network \
-  -d mysql/mysql-server:8.0.21
+  -d mysql/mysql-server:8.0.23
 
