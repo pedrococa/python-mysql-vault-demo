@@ -23,7 +23,7 @@ vault write data_protection/database/config/wsmysqldatabase \
     password="root"
 
 # Rotate root password
-vault write  -force data_protection/database/rotate-root/wsmysqldatabase
+vault write -force data_protection/database/rotate-root/wsmysqldatabase
 
 # Create a role with a longer TTL
 vault write data_protection/database/roles/vault-demo-app-long \

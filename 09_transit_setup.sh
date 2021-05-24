@@ -9,10 +9,10 @@ export VAULT_NAMESPACE=dev
 echo "Enabling the vault transit secrets engine..."
 
 # Enable the transit secret engine
-vault secrets enable  -path=data_protection/transit transit
+vault secrets enable -path=data_protection/transit transit
 
 # Create our customer key
-vault write  -f data_protection/transit/keys/customer-key
+vault write -f data_protection/transit/keys/customer-key
 
 # Create our archive key to demonstrate multiple keys
 vault write -f data_protection/transit/keys/archive-key
