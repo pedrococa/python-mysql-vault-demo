@@ -1,7 +1,7 @@
 #!/bin/sh
 set -o xtrace
 #pulling mysql docker image
-docker pull mysql/mysql-server:8.0.23
+docker pull mysql/mysql-server:8.0.25
 #creating a directory on the host to persist mysql data
 mkdir ~/vault-demo-data
 #Running mysql docker container
@@ -15,5 +15,5 @@ docker run --name vault-demo-mysql \
   -e MYSQL_USER=vault \
   -e MYSQL_PASSWORD=vaultpw \
   --network dev-network \
-  -d mysql/mysql-server:8.0.23
+  -d mysql/mysql-server:8.0.25
 

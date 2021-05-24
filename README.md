@@ -25,6 +25,6 @@ Application code is copied from:
 
 With minor modifications including:
  - Warning messages fix on deprecated syntax
- - MySQL version used (8.0.27)
+ - MySQL version used (8.0.25)
  - SQL statements are read from a file
  - Changed sample data & data scheme
