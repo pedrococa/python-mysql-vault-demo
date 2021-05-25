@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
     `create_date` varchar(255) NOT NULL,
     `social_security_number` varchar(255) NOT NULL,
     `credit_card_number` varchar(255) NOT NULL,
+    `account` varchar(255) NOT NULL,
     `address` varchar(255) NOT NULL,
     PRIMARY KEY (`cust_no`)
 ) ENGINE=InnoDB;

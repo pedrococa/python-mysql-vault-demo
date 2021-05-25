@@ -212,7 +212,8 @@ class DbClient:
                 r['create_date'] = row[4]
                 r['ssn'] = row[5]
                 r['ccn'] = row[6]
-                r['address'] = row[7]
+                r['account'] = row[7]
+                r['address'] = row[8]
                 if self.vault_client is not None and not raw:
                     r['birth_date'] = self.decrypt(r['birth_date'])
                     r['ssn'] = self.decode_ssn(r['ssn'])
@@ -236,8 +237,9 @@ class DbClient:
                 r['last_name'] = row[3]
                 r['create_date'] = row[4]
                 r['ssn'] = row[5]
-                r['ssn'] = row[6]
-                r['address'] = row[7]
+                r['ccn'] = row[6]
+                r['account'] = row[7]
+                r['address'] = row[8]
                 if self.vault_client is not None:
                     r['birth_date'] = self.decrypt(r['birth_date'])
                     r['ssn'] = self.decode_ssn(r['ssn'])
@@ -249,11 +251,11 @@ class DbClient:
 
     def insert_customer_record(self, record):
         if self.vault_client is None:
-            statement = '''INSERT INTO `customers` (`birth_date`, `first_name`, `last_name`, `create_date`, `social_security_number`, `credit_card_number`, `address`)
-                            VALUES  ("{}", "{}", "{}", "{}", "{}", "{}", "{}");'''.format(record['birth_date'], record['first_name'], record['last_name'], record['create_date'], record['ssn'], record['ccn'], record['address'] )
+            statement = '''INSERT INTO `customers` (`birth_date`, `first_name`, `last_name`, `create_date`, `social_security_number`, `credit_card_number`, `account`, `address`)
+                            VALUES  ("{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}");'''.format(record['birth_date'], record['first_name'], record['last_name'], record['create_date'], record['ssn'], record['ccn'], record['account'], record['address'] )
         else:
-            statement = '''INSERT INTO `customers` (`birth_date`, `first_name`, `last_name`, `create_date`, `social_security_number`, `credit_card_number`, `address`)
-                            VALUES  ("{}", "{}", "{}", "{}", "{}", "{}", "{}");'''.format(self.encrypt(record['birth_date']), record['first_name'], record['last_name'], record['create_date'], self.encode_ssn(record['ssn']), self.encode_ccn(record['ccn']), self.encrypt(record['address']) )
+            statement = '''INSERT INTO `customers` (`birth_date`, `first_name`, `last_name`, `create_date`, `social_security_number`, `credit_card_number`, `account`, `address`)
+                            VALUES  ("{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}");'''.format(self.encrypt(record['birth_date']), record['first_name'], record['last_name'], record['create_date'], self.encode_ssn(record['ssn']), self.encode_ccn(record['ccn']), record['account'], self.encrypt(record['address']) )
         logger.debug('SQL Statement: {}'.format(statement))
         cursor = self.conn.cursor()
         self._execute_sql(statement, cursor)
@@ -263,12 +265,12 @@ class DbClient:
     def update_customer_record(self, record):
         if self.vault_client is None:
             statement = '''UPDATE `customers`
-                       SET birth_date = "{}", first_name = "{}", last_name = "{}", social_security_number = "{}", credit_card_number = "{}", address = "{}"
-                       WHERE cust_no = {};'''.format(record['birth_date'], record['first_name'], record['last_name'], record['ssn'], record['ccn'], record['address'], record['cust_no'] )
+                       SET birth_date = "{}", first_name = "{}", last_name = "{}", social_security_number = "{}", credit_card_number = "{}", account = "{}", address = "{}"
+                       WHERE cust_no = {};'''.format(record['birth_date'], record['first_name'], record['last_name'], record['ssn'], record['ccn'], record['address'], record['account'], record['cust_no'] )
         else:
             statement = '''UPDATE `customers`
-                       SET birth_date = "{}", first_name = "{}", last_name = "{}", social_security_number = "{}", credit_card_number = "{}", address = "{}"
-                       WHERE cust_no = {};'''.format(self.encrypt(record['birth_date']), record['first_name'], record['last_name'], self.encode_ssn(record['ssn']), self.encode_ccn(record['ccn']), self.encrypt(record['address']), record['cust_no'] )
+                       SET birth_date = "{}", first_name = "{}", last_name = "{}", social_security_number = "{}", credit_card_number = "{}", account = "{}", address = "{}"
+                       WHERE cust_no = {};'''.format(self.encrypt(record['birth_date']), record['first_name'], record['last_name'], self.encode_ssn(record['ssn']), self.encode_ccn(record['ccn']), record['account'], self.encrypt(record['address']), record['cust_no'] )
         logger.debug('Sql Statement: {}'.format(statement))
         cursor = self.conn.cursor()
         self._execute_sql(statement, cursor)
