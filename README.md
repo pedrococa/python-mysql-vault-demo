@@ -28,3 +28,7 @@ With minor modifications including:
  - MySQL version used (8.0.27)
  - SQL statements are read from a file
  - Changed sample data & data scheme
+ - Added tokenization script demo
+
+TODO:
+ - Add tokenization integration for the Bank Account field
