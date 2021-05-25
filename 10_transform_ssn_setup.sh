@@ -3,7 +3,7 @@ export VAULT_TOKEN=root
 export VAULT_NAMESPACE=dev
 
 #enable the transform secret engine
-vault secrets enable  -path=data_protection/transform transform
+vault secrets enable -path=data_protection/transform transform
 
 #Define a rol ssn with transformation ssn
 vault write data_protection/transform/role/ssn transformations=ssn
