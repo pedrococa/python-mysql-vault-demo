@@ -3,7 +3,7 @@ export VAULT_TOKEN=root
 export VAULT_NAMESPACE=dev
 
 #enable the transform secret engine for masking
-vault secrets enable  -path=data_protection/masking/transform transform
+vault secrets enable -path=data_protection/masking/transform transform
 
 #Define a role ccn with transformation ccn
 vault write data_protection/masking/transform/role/ccn transformations=ccn
