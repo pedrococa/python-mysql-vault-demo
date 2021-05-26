@@ -12,11 +12,11 @@ Add a user in the WebApp.
 WebApp runs on port 5000
   
 **Step B: App with Vault**  
-Run Scripts 05-13 to setup vault and App configuration and at the end start the app.
+Run Scripts 05-14 to setup vault and App configuration and at the end start the app.
 Test the app, add new user
   
 **Step C: Cleanup**   
-Destroy with Script 14
+Destroy with Script 15
 
 Application code is copied from: 
  - https://github.com/norhe/transit-app-example 
