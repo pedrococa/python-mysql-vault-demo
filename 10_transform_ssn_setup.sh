@@ -12,7 +12,7 @@ vault write data_protection/transform/role/ssn transformations=ssn
 vault write data_protection/transform/transformation/ssn type=fpe template=builtin/socialsecuritynumber tweak_source=internal allowed_roles=ssn
 #test if the transformation was created successfully
 vault list data_protection/transform/transformation
-vault read  data_protection/transform/transformation/ssn
+vault read data_protection/transform/transformation/ssn
 #test if you are able to transform a SSN
 vault write data_protection/transform/encode/ssn value=111-22-3333
 #test decode with following statements
